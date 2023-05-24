@@ -70,4 +70,9 @@ void main(List<String> args) {
   dynamic dj = nj;
 
   print(dj.a);
+
+  // dynamic member
+  String map = nj['b'].get();
+
+  print(map);
 }

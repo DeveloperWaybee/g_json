@@ -32,6 +32,27 @@ enum Type { string, number, bool, list, map, nil, unknown }
 
 /// abstract json object
 class JSON {
+  T get<T extends Object>() {
+    switch (T) {
+      case String:
+        return stringValue as T;
+      case int:
+        return integerValue as T;
+      case double:
+        return ddoubleValue as T;
+      case num:
+        return numberValue as T;
+      case bool:
+        return numberValue as T;
+      case DateTime:
+        return (DateTime.tryParse(stringValue) ?? DateTime.now()) as T;
+      case Map:
+        return mapObject as T;
+      default:
+        return value as T;
+    }
+  }
+
   dynamic _value;
   late Type _type;
 
