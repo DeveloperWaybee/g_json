@@ -62,7 +62,7 @@ void main(List<String> args) {
   ///
   final nj = JSON({'a': 'a', 'b': 1});
 
-  nj['b'] = null;
+  nj['b'] = 1234567;
 
   print(nj.rawString());
 
@@ -72,7 +72,8 @@ void main(List<String> args) {
   print(dj.a);
 
   // dynamic member
-  String map = nj['b'].get();
-
+  print('///////////////');
+  Map map = nj['b'].get();
   print(map);
+  print('///////////////');
 }

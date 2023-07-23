@@ -43,11 +43,15 @@ class JSON {
       case num:
         return numberValue as T;
       case bool:
-        return numberValue as T;
+        return booleanValue as T;
       case DateTime:
         return (DateTime.tryParse(stringValue) ?? DateTime.now()) as T;
       case Map:
-        return mapObject as T;
+        try {
+          return mapObject as T;
+        } catch (e) {
+          return Map() as T;
+        }
       default:
         return value as T;
     }
